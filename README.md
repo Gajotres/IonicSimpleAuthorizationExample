@@ -2,9 +2,9 @@
 
 Follow these instruction to deploy this example:
 
-1. git clone https://github.com/Gajotres/IonicAuthorizationExample.git
-2. cd IonicAuthorizationExample
-3. ionic platform add android
+1. git clone https://github.com/Gajotres/IonicSimpleAuthorizationExample.git
+2. cd IonicSimpleAuthorizationExample
+3. ionic cordova platform add android
 4. npm install
 5. ionic serve -> To see if everything is working as it should
 6. ionic run android -l -c -s
