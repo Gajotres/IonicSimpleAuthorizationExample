@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Authorization Page</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)">
+        <ion-item>
+            <ion-label floating>Username</ion-label>
+            <ion-input formControlName="username" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="authForm.controls.username.hasError('required') && authForm.controls.username.touched">
+            <p>Sorry, field username is required!</p>
+        </ion-item>
+        <ion-item *ngIf="authForm.controls.username.hasError('pattern') && authForm.controls.username.touched">
+            <p>Sorry, only small and capital letters are allowed!</p>
+        </ion-item>        
+        <ion-item *ngIf="authForm.controls.username.hasError('minlength') && authForm.controls.username.touched">
+            <p>Sorry, minimum username length is 8!</p>
+        </ion-item>
+        <ion-item *ngIf="authForm.controls.username.hasError('maxlength') && authForm.controls.username.touched">
+            <p>Sorry, maximum username length is 30!</p>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input formControlName="password" type="password"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="authForm.controls.password.hasError('required') && authForm.controls.password.touched">
+            <p>Sorry, field password is required!</p>
+        </ion-item>
+        <ion-item *ngIf="authForm.controls.password.hasError('minlength') && authForm.controls.password.touched">
+            <p>Sorry, minimum password length is 8!</p>
+        </ion-item>                
+
+		<button ion-button full color="primary" [disabled]="!authForm.valid" style="margin-top: 20px;" type="submit">Authorize</button>        
+	</form>
+</ion-content>
